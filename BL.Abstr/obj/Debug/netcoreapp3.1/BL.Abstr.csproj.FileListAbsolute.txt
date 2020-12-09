@@ -1,0 +1,9 @@
+C:\Users\azazellio\source\repos\RobotsConsole\BL.Abstr\bin\Debug\netcoreapp3.1\BL.Abstr.deps.json
+C:\Users\azazellio\source\repos\RobotsConsole\BL.Abstr\bin\Debug\netcoreapp3.1\BL.Abstr.dll
+C:\Users\azazellio\source\repos\RobotsConsole\BL.Abstr\bin\Debug\netcoreapp3.1\BL.Abstr.pdb
+C:\Users\azazellio\source\repos\RobotsConsole\BL.Abstr\obj\Debug\netcoreapp3.1\BL.Abstr.AssemblyInfoInputs.cache
+C:\Users\azazellio\source\repos\RobotsConsole\BL.Abstr\obj\Debug\netcoreapp3.1\BL.Abstr.AssemblyInfo.cs
+C:\Users\azazellio\source\repos\RobotsConsole\BL.Abstr\obj\Debug\netcoreapp3.1\BL.Abstr.csproj.CoreCompileInputs.cache
+C:\Users\azazellio\source\repos\RobotsConsole\BL.Abstr\obj\Debug\netcoreapp3.1\BL.Abstr.dll
+C:\Users\azazellio\source\repos\RobotsConsole\BL.Abstr\obj\Debug\netcoreapp3.1\BL.Abstr.pdb
+C:\Users\azazellio\source\repos\RobotsConsole\BL.Abstr\obj\Debug\netcoreapp3.1\BL.Abstr.csprojAssemblyReference.cache
