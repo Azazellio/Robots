@@ -24,6 +24,19 @@
         "runtime": {
           "bin/placeholder/BL.Impl.dll": {}
         }
+      },
+      "View.Abstract/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "BL.Abstr": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/View.Abstract.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/View.Abstract.dll": {}
+        }
       }
     }
   },
@@ -37,12 +50,18 @@
       "type": "project",
       "path": "../BL.Impl/BL.Impl.csproj",
       "msbuildProject": "../BL.Impl/BL.Impl.csproj"
+    },
+    "View.Abstract/1.0.0": {
+      "type": "project",
+      "path": "../View.Abstract/View.Abstract.csproj",
+      "msbuildProject": "../View.Abstract/View.Abstract.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "BL.Abstr >= 1.0.0",
-      "BL.Impl >= 1.0.0"
+      "BL.Impl >= 1.0.0",
+      "View.Abstract >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -77,6 +96,9 @@
             },
             "C:\\Users\\azazellio\\source\\repos\\RobotsConsole\\BL.Impl\\BL.Impl.csproj": {
               "projectPath": "C:\\Users\\azazellio\\source\\repos\\RobotsConsole\\BL.Impl\\BL.Impl.csproj"
+            },
+            "C:\\Users\\azazellio\\source\\repos\\RobotsConsole\\View.Abstract\\View.Abstract.csproj": {
+              "projectPath": "C:\\Users\\azazellio\\source\\repos\\RobotsConsole\\View.Abstract\\View.Abstract.csproj"
             }
           }
         }

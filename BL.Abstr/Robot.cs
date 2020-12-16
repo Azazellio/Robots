@@ -9,14 +9,25 @@ namespace BL.Abstr
         public Guid PlayerId { get; protected set; }
         protected Guid RobotId;
         public string Legend;
-        protected int Battery;
+        protected int _Battery;
         protected int BackpackSize;
-        protected string View = "R";
-        public int PosX;
-        public int PosY;
+        protected List<AbstractCargo> _Backpack;
+        protected int PosX;
+        protected int PosY;
+        protected int movePrice;
+        protected int pickPrice;
+        
+        public virtual int GetPosX { get => this.PosX; set => this.PosX = value; }
+        public virtual int GetPosY { get => this.PosY; set => this.PosY = value; }
+        public virtual int Battery { get => this._Battery; set => this._Battery = value; }
+        public virtual List<AbstractCargo> Backpack { get => this._Backpack; set => this._Backpack = value; }
+        public virtual int CargoCount { get => this.Backpack.Count; }
         protected Robot()
         {
             this.RobotId = Guid.NewGuid();
+            this.Backpack = new List<AbstractCargo>();
+            this.movePrice = 4;
+            this.pickPrice = 7;
         }
         public void SetPlayerId(Guid playerId)
         {
@@ -31,15 +42,19 @@ namespace BL.Abstr
                 return false;
             return true;
         }
-        protected void ReduceBattery(int reducer)
+        public virtual void ReduceBattery(int reducer)
         {
             if (this.checkBattery(reducer))
                 this.Battery -= reducer;
         }
-        protected List<AbstractCargo> Backpack;
         public virtual void PickupCargo(AbstractCargo cargo)
         {
             this.Backpack.Add(cargo);
+            this.ReduceBattery(pickPrice);
+        }
+        public virtual bool CanPickCargo(AbstractCargo cargo)
+        {
+            return this.checkBattery(pickPrice);
         }
         public virtual int CountTreasure()
         {
@@ -70,42 +85,40 @@ namespace BL.Abstr
         public virtual void ActionMoveLeft()
         {
             this.MoveLeft();
-            this.ReduceBattery(5);
+            this.ReduceBattery(movePrice);
         }
         public virtual void ActionMoveRight()
         {
             this.MoveRight();
-            this.ReduceBattery(5);
+            this.ReduceBattery(movePrice);
         }
         public virtual void ActionMoveDown()
         {
             this.MoveDown();
-            this.ReduceBattery(5);
+            this.ReduceBattery(movePrice);
         }
         public virtual void ActionMoveUp()
         {
             this.MoveUp();
-            this.ReduceBattery(5);
+            this.ReduceBattery(movePrice);
         }
 
-        public string GetView()
+        public virtual Type GetCompilerTimeType()
         {
-            return this.View;
+            return this.GetType();
         }
-
-        public int GetPosX()
+        public override string ToString()
         {
-            return this.PosX;
+            var res = "";
+            res += "y: " + this.GetPosY.ToString() + " x: " + this.GetPosX.ToString() +
+                Environment.NewLine + "Battery: " + this.Battery.ToString() +
+                Environment.NewLine + "price of cargo: " + this.CountTreasure().ToString() + " count of cargo: " + this.CargoCount.ToString()
+                + Environment.NewLine + "Type: " + this.GetType();
+            return res;
         }
-
-        public int GetPosY()
+        public void SetBatteryCustom(int bat)
         {
-            return this.PosY;
-        }
-
-        public void Destroy()
-        {
-            this.View = " ";
+            this.Battery = bat;
         }
     }
 }

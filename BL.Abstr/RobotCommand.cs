@@ -9,11 +9,11 @@ namespace BL.Abstr
     {
         public event EventHandler CanExecuteChanged;
 
-        protected IField field;
+        protected Robot robot;
         protected string backUp;
-        public RobotCommand(IField field)
+        public RobotCommand(Robot robot)
         {
-            this.field = field;
+            this.robot = robot;
         }
         public abstract void Execute();
     }

@@ -5,9 +5,10 @@ using System;
 
 namespace BL.Impl.RobotDecorators
 {
-    class SpoilingRobotDecorator : AbstractRobotDecorator
+    public class SpoilingRobotDecorator : AbstractRobotDecorator
     {
         private int _ActionsUntilSpoiled = -1;
+        private AbstractCargo cargoThatSpoils;
         public int ActionsUntilSpoiled
         {
             get { return this._ActionsUntilSpoiled; }
@@ -18,7 +19,6 @@ namespace BL.Impl.RobotDecorators
                 this._ActionsUntilSpoiled = value;
             }
         }
-        private AbstractCargo cargoThatSpoils;
         private void DePriceCargo()
         {
             this.cargoThatSpoils.Price = 0;
@@ -31,34 +31,34 @@ namespace BL.Impl.RobotDecorators
             if (cargo.GetType() == typeof(SpoilableCargo))
             {
                 this.cargoThatSpoils = cargo;
-                this.ActionsUntilSpoiled = 15;
+                this.ActionsUntilSpoiled = 10;
             }
-            base.PickupCargo(cargo);
+            this.robot.PickupCargo(cargo);
         }
         private void SpoilCargo()
         {
             if (this._ActionsUntilSpoiled != -1)
                 this.ActionsUntilSpoiled--;
         }
-        protected override void MoveUp()
+        public override void ActionMoveUp()
         {
             this.SpoilCargo();
-            base.MoveUp();
+            robot.ActionMoveUp();
         }
-        protected override void MoveDown()
+        public override void ActionMoveDown()
         {
             this.SpoilCargo();
-            base.MoveDown();
+            robot.ActionMoveDown();
         }
-        protected override void MoveLeft()
+        public override void ActionMoveLeft()
         {
             this.SpoilCargo();
-            base.MoveLeft();
+            robot.ActionMoveLeft();
         }
-        protected override void MoveRight()
+        public override void ActionMoveRight()
         {
             this.SpoilCargo();
-            base.MoveRight();
+            robot.ActionMoveRight();
         }
     }
 }

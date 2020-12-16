@@ -16,3 +16,5 @@ C:\Users\azazellio\source\repos\RobotsConsole\RobotsConsole\bin\Debug\netcoreapp
 C:\Users\azazellio\source\repos\RobotsConsole\RobotsConsole\bin\Debug\netcoreapp3.1\BL.Abstr.pdb
 C:\Users\azazellio\source\repos\RobotsConsole\RobotsConsole\bin\Debug\netcoreapp3.1\BL.Impl.pdb
 C:\Users\azazellio\source\repos\RobotsConsole\RobotsConsole\obj\Debug\netcoreapp3.1\RobotsConsole.csproj.CopyComplete
+C:\Users\azazellio\source\repos\RobotsConsole\RobotsConsole\bin\Debug\netcoreapp3.1\View.Abstract.dll
+C:\Users\azazellio\source\repos\RobotsConsole\RobotsConsole\bin\Debug\netcoreapp3.1\View.Abstract.pdb

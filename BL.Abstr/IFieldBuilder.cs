@@ -7,5 +7,7 @@ namespace BL.Abstr
     public interface IFieldBuilder
     {
         public IField CreateField(int X, int Y, Robot robot);
+        public IField UpdateField(IField field);
+        public string GetRobotRef();
     }
 }

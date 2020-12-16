@@ -5,47 +5,43 @@ using System;
 
 namespace BL.Impl.RobotDecorators
 {
-    class ProtectedRobotDecorator : AbstractRobotDecorator
+    public class ProtectedRobotDecorator : AbstractRobotDecorator
     {
         public ProtectedRobotDecorator() : base() { }
 
-        public override void PickupCargo(AbstractCargo cargo)
+        public override bool CanPickCargo(AbstractCargo cargo)
         {
-            if (this.CanPickUpCargo(cargo))
+            if (robot.CanPickCargo(cargo))
             {
-                base.PickupCargo(cargo);
-            }
-        }
-
-        private bool CanPickUpCargo(AbstractCargo cargo)
-        {
-            if (cargo.GetType() == typeof(ProtectedCargo))
-            {
-                var rand = new Random();
-                var integ = rand.Next(0, 100);
-
-                if (this.robot.GetType() == typeof(BrightMind))
+                if (cargo.GetType() == typeof(ProtectedCargo))
                 {
-                    return true;
-                }
-                else if (this.robot.GetType() == typeof(Cyborg))
-                {
-                    if (integ < 60)
+                    var rand = new Random();
+                    var integ = rand.Next(0, 100);
+
+                    if (this.robot.GetCompilerTimeType() == typeof(BrightMind))
                     {
                         return true;
                     }
-                    return false;
-                }
-                else if (this.robot.GetType() == typeof(Worker))
-                {
-                    if (integ < 10)
+                    else if (this.robot.GetCompilerTimeType() == typeof(Cyborg))
                     {
-                        return true;
+                        if (integ < 60)
+                        {
+                            return true;
+                        }
+                        return false;
                     }
-                    return false;
+                    else if (this.robot.GetCompilerTimeType() == typeof(Worker))
+                    {
+                        if (integ < 10)
+                        {
+                            return true;
+                        }
+                        return false;
+                    }
                 }
+                return true;
             }
-            return true;
+            return false;
         }
     }
 }

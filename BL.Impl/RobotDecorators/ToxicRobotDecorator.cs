@@ -7,59 +7,62 @@ namespace BL.Impl.RobotDecorators
 {
     class ToxicRobotDecorator : AbstractRobotDecorator
     {
-        private int ToxicActions = 0;
-        public ToxicRobotDecorator() : base() { }
+        private int toxicActions;
+        private int toxicActionPrice;
+        public ToxicRobotDecorator() : base()
+        {
+            this.toxicActions = 0;
+            this.toxicActionPrice = 3;
+        }
         public override void PickupCargo(AbstractCargo cargo)
         {
             DecoratedPickup(cargo);
             this.robot.PickupCargo(cargo);
         }
         
-        public void DecoratedPickup(AbstractCargo cargo)
+        private void DecoratedPickup(AbstractCargo cargo)
         {
-            if (cargo.GetType() == typeof(ToxicCargo) && this.robot.GetType() == typeof(Cyborg))
+            if (cargo.GetType() == typeof(ToxicCargo) && this.robot.GetCompilerTimeType() == typeof(Cyborg))
             {
-                this.ToxicActions += 10;
-                this.ReduceBattery(10);
+                this.toxicActions = 10;
                 this.ReduceToxicActionPickUp();
             }
         }
         private void ReduceToxicActionPickUp()
         {
-            if (this.ToxicActions > 0)
+            if (this.toxicActions > 0)
             {
-                this.ReduceBattery(4);
-                this.ToxicActions -= 1;
+                this.robot.ReduceBattery(toxicActionPrice + 1);
+                this.toxicActions -= 1;
             }
         }
         private void ReduceToxicActionMove()
         {
-            if (this.ToxicActions > 0)
+            if (this.toxicActions > 0)
             {
-                this.ReduceBattery(3);
-                this.ToxicActions -= 1;
+                this.robot.ReduceBattery(toxicActionPrice);
+                this.toxicActions -= 1;
             }
         }
-        protected override void MoveLeft()
+        public override void ActionMoveLeft()
         {
-            base.MoveLeft();
             ReduceToxicActionMove();
+            this.robot.ActionMoveLeft();
         }
-        protected override void MoveRight()
+        public override void ActionMoveRight()
         {
-            base.MoveRight();
             ReduceToxicActionMove();
+            this.robot.ActionMoveRight();
         }
-        protected override void MoveDown()
+        public override void ActionMoveDown()
         {
-            base.MoveDown();
             ReduceToxicActionMove();
+            this.robot.ActionMoveDown();
         }
-        protected override void MoveUp()
+        public override void ActionMoveUp()
         {
-            base.MoveUp();
             ReduceToxicActionMove();
+            this.robot.ActionMoveUp();
         }
-
     }
 }

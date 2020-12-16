@@ -18,5 +18,9 @@ namespace RobotsConsole
         {
             this.mapping[input].Execute();
         }
+        public void ClearDict()
+        {
+            this.mapping = new Dictionary<string, RobotCommand>();
+        }
     }
 }

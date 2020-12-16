@@ -3,11 +3,13 @@ using BL.Impl.RobotDecorators;
 
 namespace BL.Impl.DecoratorsCreator
 {
-    class ProtectedDecoratorFactory : RobotAbstractFactory
+    class ProtectedDecoratorFactory : RobotDecoratorAbstractFactory
     {
-        public override Robot CreateRobot()
+        public override AbstractRobotDecorator CreateDecorator(Robot robot)
         {
-            return new ProtectedRobotDecorator();
+            var res =  new ProtectedRobotDecorator();
+            res.SetRobot(robot);
+            return res;
         }
     }
 }
