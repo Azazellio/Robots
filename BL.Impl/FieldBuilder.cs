@@ -72,9 +72,10 @@ namespace BL.Impl
                         {
                             if (robot.GetPosY == i && robot.GetPosX == j)
                             {
+                                this.robot = decorator.DecorateRobotIfNeeded(robot, (AbstractCargo)obj);
+
                                 if (robot.CanPickCargo((AbstractCargo)obj))
                                 {
-                                    this.robot = decorator.DecorateRobotIfNeeded(robot, (AbstractCargo)obj);
                                     robot.PickupCargo((AbstractCargo)obj);
                                     newField[obj.GetPosY, obj.GetPosX] = robot;
                                 }
@@ -126,7 +127,7 @@ namespace BL.Impl
             {
                 type = typeof(SpoilableCargo);
             }
-            else if(picker < 6 & picker > 4 )
+            else if(picker < 9 & picker > 4 )
             {
                 type = typeof(ProtectedCargo);
             }

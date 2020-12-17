@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BL.Abstr
 {
-    public abstract class Robot:IGameObject
+    public abstract class Robot:IGameObject, ICloneable
     {
         public Guid PlayerId { get; protected set; }
         protected Guid RobotId;
@@ -120,5 +120,7 @@ namespace BL.Abstr
         {
             this.Battery = bat;
         }
+
+        public abstract object Clone();
     }
 }

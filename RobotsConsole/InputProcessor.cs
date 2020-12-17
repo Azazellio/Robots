@@ -14,9 +14,10 @@ namespace RobotsConsole
         {
             this.mapping.Add(input, command);
         }
-        public void ExecuteByInput(string input)
+        public RobotCommand ExecuteByInput(string input)
         {
             this.mapping[input].Execute();
+            return this.mapping[input];
         }
         public void ClearDict()
         {

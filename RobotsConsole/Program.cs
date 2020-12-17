@@ -15,11 +15,13 @@ namespace RobotsConsole
             var inputP = new InputProcessor();
             Robot robot = field.GetRobot();
             robot.SetBatteryCustom(1000000);
+            History history = new History();
 
             RobotCommand MoveUpC = new MoveUpCommand(field.GetRobot());
             RobotCommand MoveLeftC = new MoveLeftCommand(field.GetRobot());
             RobotCommand MoveRightC = new MoveRightCommand(field.GetRobot());
             RobotCommand MoveDownC = new MoveDownCommand(field.GetRobot());
+
 
             inputP.AddMap("w", MoveUpC);
             inputP.AddMap("a", MoveLeftC);
@@ -44,13 +46,21 @@ namespace RobotsConsole
                 inputP.AddMap("a", MoveLeftC);
                 inputP.AddMap("d", MoveRightC);
                 inputP.AddMap("s", MoveDownC);
-                //Console.Clear();
+
                 Console.WriteLine(shower.GetString(field));
                 Console.WriteLine(app.builder.GetRobotRef());
 
                 string comm = Console.ReadLine();
+                if (comm == "undo")
+                {
+                    history.Undo();
+                    field = app.UpdateField(field);
+                    continue;
+                }
                 //Console.Clear();
-                inputP.ExecuteByInput(comm);
+                RobotCommand command = inputP.ExecuteByInput(comm);
+                command.AddBackup(field.CreateSnapshot());
+                history.Push(command);
                 field = app.UpdateField(field);
             }
         }

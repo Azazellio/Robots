@@ -10,5 +10,8 @@ namespace BL.Abstr
         public int GetSizeX();
         public int GetSizeY();
         public IGameObject[,] GetField();
+        public IFieldSnapshot CreateSnapshot();
+        public void SetFieldArr(IGameObject[,] fieldarr);
+        public void SetRobot(Robot robot);
     }
 }

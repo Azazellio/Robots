@@ -2,6 +2,7 @@
 using BL.Impl.Cargos;
 using BL.Impl.Robots;
 using System;
+using System.Collections.Generic;
 
 namespace BL.Impl.RobotDecorators
 {
@@ -59,6 +60,28 @@ namespace BL.Impl.RobotDecorators
         {
             this.SpoilCargo();
             robot.ActionMoveRight();
+        }
+
+        public override object Clone()
+        {
+            SpoilingRobotDecorator protdec = new SpoilingRobotDecorator();
+
+            protdec.SetRobot((Robot)this.robot.Clone());
+
+            protdec._ActionsUntilSpoiled = this._ActionsUntilSpoiled;
+            protdec.cargoThatSpoils = this.cargoThatSpoils;
+
+            protdec.SetBatteryCustom(this.Battery);
+            protdec.Backpack = new List<AbstractCargo>(this.Backpack);
+            protdec.BackpackSize = this.BackpackSize;
+            protdec.RobotId = this.RobotId;
+            protdec.PosX = this.PosX;
+            protdec.PosY = this.PosY;
+            protdec.movePrice = this.movePrice;
+            protdec.pickPrice = this.pickPrice;
+            protdec.Legend = this.Legend;
+
+            return protdec;
         }
     }
 }

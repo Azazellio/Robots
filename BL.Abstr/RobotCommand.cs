@@ -10,11 +10,20 @@ namespace BL.Abstr
         public event EventHandler CanExecuteChanged;
 
         protected Robot robot;
-        protected string backUp;
+        protected IFieldSnapshot backUp;
         public RobotCommand(Robot robot)
         {
             this.robot = robot;
         }
         public abstract void Execute();
+
+        public void AddBackup(IFieldSnapshot snap)
+        {
+            this.backUp = snap;
+        }
+        public void Undo()
+        {
+            this.backUp.Restore();
+        }
     }
 }
