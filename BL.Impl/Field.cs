@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 namespace BL.Impl
 {
-    class Field : IField
+    public class Field : IField
     {
         private IGameObject[,] fieldArr;
         private Robot robot;
-
+        public Field() { }
         public Field(IGameObject[,] field, Robot robot)
         {
             this.fieldArr = field;
@@ -19,12 +19,12 @@ namespace BL.Impl
             return this.robot;
         }
 
-        public int GetSizeX()
+        public int GetSizeY()
         {
             return this.fieldArr.GetLength(0);
         }
 
-        public int GetSizeY()
+        public int GetSizeX()
         {
             return this.fieldArr.GetLength(1);
         }
@@ -36,9 +36,9 @@ namespace BL.Impl
 
         public IFieldSnapshot CreateSnapshot()
         {
-            //var resarr = new IGameObject[this.fieldArr.GetLength(0), this.fieldArr.GetLength(1)];
             var resarr = this.fieldArr.Clone() as IGameObject[,];
-            return new FieldSnapshot(resarr, (Robot)this.robot.Clone(), this) ;
+            var rob = (Robot)this.robot.Clone();
+            return new FieldSnapshot(resarr, rob, this);
         }
 
         public void SetFieldArr(IGameObject[,] fieldarr1)
@@ -49,6 +49,18 @@ namespace BL.Impl
         public void SetRobot(Robot robot)
         {
             this.robot = robot;
+        }
+
+        public bool CanMoveThere(int y, int x)
+        {
+            if (y < this.GetSizeY() && y > -1)
+            {
+                if(x < this.GetSizeX() && x > -1)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

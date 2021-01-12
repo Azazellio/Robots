@@ -1,0 +1,14 @@
+C:\Users\azazellio\source\repos\RobotsConsole\BL.Impl.Tests\bin\Debug\netcoreapp3.1\BL.Impl.Tests.deps.json
+C:\Users\azazellio\source\repos\RobotsConsole\BL.Impl.Tests\bin\Debug\netcoreapp3.1\BL.Impl.Tests.dll
+C:\Users\azazellio\source\repos\RobotsConsole\BL.Impl.Tests\bin\Debug\netcoreapp3.1\BL.Impl.Tests.pdb
+C:\Users\azazellio\source\repos\RobotsConsole\BL.Impl.Tests\bin\Debug\netcoreapp3.1\BL.Abstr.dll
+C:\Users\azazellio\source\repos\RobotsConsole\BL.Impl.Tests\bin\Debug\netcoreapp3.1\BL.Impl.dll
+C:\Users\azazellio\source\repos\RobotsConsole\BL.Impl.Tests\bin\Debug\netcoreapp3.1\BL.Abstr.pdb
+C:\Users\azazellio\source\repos\RobotsConsole\BL.Impl.Tests\bin\Debug\netcoreapp3.1\BL.Impl.pdb
+C:\Users\azazellio\source\repos\RobotsConsole\BL.Impl.Tests\obj\Debug\netcoreapp3.1\BL.Impl.Tests.csprojAssemblyReference.cache
+C:\Users\azazellio\source\repos\RobotsConsole\BL.Impl.Tests\obj\Debug\netcoreapp3.1\BL.Impl.Tests.AssemblyInfoInputs.cache
+C:\Users\azazellio\source\repos\RobotsConsole\BL.Impl.Tests\obj\Debug\netcoreapp3.1\BL.Impl.Tests.AssemblyInfo.cs
+C:\Users\azazellio\source\repos\RobotsConsole\BL.Impl.Tests\obj\Debug\netcoreapp3.1\BL.Impl.Tests.csproj.CoreCompileInputs.cache
+C:\Users\azazellio\source\repos\RobotsConsole\BL.Impl.Tests\obj\Debug\netcoreapp3.1\BL.Impl.Tests.csproj.CopyComplete
+C:\Users\azazellio\source\repos\RobotsConsole\BL.Impl.Tests\obj\Debug\netcoreapp3.1\BL.Impl.Tests.dll
+C:\Users\azazellio\source\repos\RobotsConsole\BL.Impl.Tests\obj\Debug\netcoreapp3.1\BL.Impl.Tests.pdb

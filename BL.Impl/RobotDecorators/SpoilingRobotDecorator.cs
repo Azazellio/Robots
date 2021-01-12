@@ -8,19 +8,19 @@ namespace BL.Impl.RobotDecorators
 {
     public class SpoilingRobotDecorator : AbstractRobotDecorator
     {
-        private int _ActionsUntilSpoiled = -1;
-        private AbstractCargo cargoThatSpoils;
+        protected int _ActionsUntilSpoiled = -1;
+        public AbstractCargo cargoThatSpoils;
         public int ActionsUntilSpoiled
         {
             get { return this._ActionsUntilSpoiled; }
-            private set
+            set
             {
                 if (value < 1)
                     DePriceCargo();
                 this._ActionsUntilSpoiled = value;
             }
         }
-        private void DePriceCargo()
+        protected void DePriceCargo()
         {
             this.cargoThatSpoils.Price = 0;
         }

@@ -7,7 +7,7 @@ using BL.Impl.DecoratorsCreator;
 
 namespace BL.Impl
 {
-    class RobotDecoratorPicker
+    public class RobotDecoratorPicker
     {
         private RobotDecoratorAbstractFactory factory;
         public RobotDecoratorPicker()

@@ -9,5 +9,6 @@ namespace BL.Impl.Cargos
         {
             this.isToxic = true;
         }
+        public ToxicCargo() : base() { }
     }
 }

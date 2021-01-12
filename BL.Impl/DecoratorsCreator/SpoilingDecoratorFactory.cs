@@ -3,7 +3,7 @@ using BL.Impl.RobotDecorators;
 
 namespace BL.Impl.DecoratorsCreator
 {
-    class SpoilingDecoratorFactory : RobotDecoratorAbstractFactory
+    public class SpoilingDecoratorFactory : RobotDecoratorAbstractFactory
     {
         public override AbstractRobotDecorator CreateDecorator(Robot robot)
         {

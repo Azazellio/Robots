@@ -13,5 +13,6 @@ namespace BL.Abstr
         public IFieldSnapshot CreateSnapshot();
         public void SetFieldArr(IGameObject[,] fieldarr);
         public void SetRobot(Robot robot);
+        public bool CanMoveThere(int y, int x);
     }
 }

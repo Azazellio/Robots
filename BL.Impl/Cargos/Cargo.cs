@@ -8,6 +8,7 @@ namespace BL.Impl.Cargos
     public class Cargo : AbstractCargo
     {
         public Cargo(int posX, int posY, int price, int weignt) : base(posX, posY, price, weignt) { }
+        public Cargo() : base() { }
 
     }
 }

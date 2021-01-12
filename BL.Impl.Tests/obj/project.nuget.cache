@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "1IEi9jIGxLzPOEcoEQHr1EKNTlftvkOHM8Z3o7deBDv7rK41HT+1OSzz9TrASlUVPQF74lMwlues8ShXlkhdSA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\azazellio\\source\\repos\\RobotsConsole\\BL.Impl.Tests\\BL.Impl.Tests.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\azazellio\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\azazellio\\.nuget\\packages\\netstandard.library\\2.0.0\\netstandard.library.2.0.0.nupkg.sha512",
+    "C:\\Users\\azazellio\\.nuget\\packages\\nunit\\3.12.0\\nunit.3.12.0.nupkg.sha512"
+  ],
+  "logs": []
+}

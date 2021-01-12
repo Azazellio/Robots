@@ -9,5 +9,6 @@ namespace BL.Impl.Cargos
         {
             this.UntilSpoils = 20;
         }
+        public SpoilableCargo() : base() { }
     }
 }

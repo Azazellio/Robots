@@ -9,5 +9,6 @@ namespace BL.Impl.Cargos
         {
             this.isProtected = true;
         }
+        public ProtectedCargo() : base() { }
     }
 }

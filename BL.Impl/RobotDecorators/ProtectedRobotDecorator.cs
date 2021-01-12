@@ -8,7 +8,7 @@ namespace BL.Impl.RobotDecorators
 {
     public class ProtectedRobotDecorator : AbstractRobotDecorator
     {
-    private bool hasBeenCalled;
+    protected bool hasBeenCalled;
     public ProtectedRobotDecorator() : base()
         {
             hasBeenCalled = false;
@@ -52,7 +52,10 @@ namespace BL.Impl.RobotDecorators
             }
             return false;
         }
-
+        public bool GethasbeenCalled()
+        {
+            return this.hasBeenCalled;
+        }
         public override object Clone()
         {
             ProtectedRobotDecorator protdec = new ProtectedRobotDecorator();

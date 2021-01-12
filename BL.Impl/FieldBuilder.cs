@@ -21,8 +21,8 @@ namespace BL.Impl
         {
             this.robot = robot;
             var resArr = new IGameObject[x, y];
-            robot.GetPosY = x-1;
-            robot.GetPosX = y-1;
+            robot.GetPosY = 0;
+            robot.GetPosX = 0;
             resArr[robot.GetPosY, robot.GetPosX] = robot;
             int cargoAmount = x*3;
             var rand = new Random();
@@ -41,19 +41,22 @@ namespace BL.Impl
                 }
             }
 
-            //this.FillField(resArr);
             var res = new Field(resArr, robot);
             return res;
         }
         
         public IField UpdateField(IField field)
         {
+/*            if (field.CanMoveThere(robot.GetPosY, robot.GetPosX))
+            {
+
+            }*/
+            this.robot = field.GetRobot();
             int rowLength = field.GetField().GetLength(0);
             int colLength = field.GetField().GetLength(1);
             var newField = new IGameObject[rowLength, colLength];
             IGameObject[,] oldfield = field.GetField();
 
-            //Robot robot = this.FindRobot(oldfield);
             if (this.notPickedCargo != null)
             {
                 this.LocateObj(newField, this.notPickedCargo);
@@ -65,7 +68,6 @@ namespace BL.Impl
                 for (int j = 0; j < colLength; j++)
                 {
                     IGameObject obj = oldfield[i, j];
-                    //var hasPicked = false;
                     if (obj != null)
                     {
                         if (obj is AbstractCargo)
@@ -91,28 +93,14 @@ namespace BL.Impl
                 }
             }
             this.LocateObj(newField, robot);
-
-            //this.FillField(newField);
-
-            return new Field(newField, robot);
+            field.SetFieldArr(newField);
+            field.SetRobot(robot);
+            return field;
         }
         private void LocateObj(IGameObject [,] field, IGameObject obj)
         {
             field[obj.GetPosY, obj.GetPosX] = obj;
         }
-
-        /*private Robot FindRobot(IGameObject [,] gameArr)
-        {
-            Robot robot = null;
-            foreach(var obj in gameArr)
-            {
-                if (obj is Robot)
-                {
-                    robot = (Robot)obj;
-                }
-            }
-            return robot;
-        }*/
         private Type PickCargoType()
         {
             Type type = typeof(Cargo);
@@ -155,27 +143,6 @@ namespace BL.Impl
             }
 
             return res;
-        }
-        private void FillField(IGameObject[,] arr)
-        {
-            int rowLength = arr.GetLength(0);
-            int colLength = arr.GetLength(1);
-
-            for (int i = 0; i < rowLength; i++)
-            {
-                for (int j = 0; j < colLength; j++)
-                {
-                    if (arr[i, j] == null)
-                        arr[i, j] = new EmptyElement(i, j);
-                }
-            }
-        }
-        public string GetRobotRef()
-        {
-            if (this.robot != null)
-                return "have a reference";
-            else
-                return "doesnt have a reference";
         }
     }
 }

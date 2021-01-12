@@ -1,19 +1,22 @@
 ﻿using BL.Abstr;
 using BL.Impl.Cargos;
 using BL.Impl.Robots;
-using System;
 using System.Collections.Generic;
 
 namespace BL.Impl.RobotDecorators
 {
-    class ToxicRobotDecorator : AbstractRobotDecorator
+    public class ToxicRobotDecorator : AbstractRobotDecorator
     {
-        private int toxicActions;
-        private int toxicActionPrice;
+        public int toxicActions { get; protected set; }
+        protected int toxicMovePrice;
+        protected int toxicPickupPrice;
+        public int toxicActionsCount;
         public ToxicRobotDecorator() : base()
         {
             this.toxicActions = 0;
-            this.toxicActionPrice = 3;
+            this.toxicMovePrice = 3;
+            this.toxicPickupPrice = 5;
+            this.toxicActionsCount = 10;
         }
         public override void PickupCargo(AbstractCargo cargo)
         {
@@ -21,11 +24,11 @@ namespace BL.Impl.RobotDecorators
             this.robot.PickupCargo(cargo);
         }
         
-        private void DecoratedPickup(AbstractCargo cargo)
+        protected void DecoratedPickup(AbstractCargo cargo)
         {
-            if (cargo.GetType() == typeof(ToxicCargo) && this.robot.GetCompilerTimeType() == typeof(Cyborg))
+            if (cargo.GetCompilerTimeType() == typeof(ToxicCargo) && this.robot.GetCompilerTimeType() == typeof(Cyborg))
             {
-                this.toxicActions = 10;
+                this.toxicActions = this.toxicActionsCount;
                 this.ReduceToxicActionPickUp();
             }
         }
@@ -33,7 +36,7 @@ namespace BL.Impl.RobotDecorators
         {
             if (this.toxicActions > 0)
             {
-                this.robot.ReduceBattery(toxicActionPrice + 1);
+                this.robot.ReduceBattery(toxicPickupPrice);
                 this.toxicActions -= 1;
             }
         }
@@ -41,7 +44,7 @@ namespace BL.Impl.RobotDecorators
         {
             if (this.toxicActions > 0)
             {
-                this.robot.ReduceBattery(toxicActionPrice);
+                this.robot.ReduceBattery(toxicMovePrice);
                 this.toxicActions -= 1;
             }
         }
@@ -72,7 +75,8 @@ namespace BL.Impl.RobotDecorators
 
             protdec.SetRobot((Robot)this.robot.Clone());
 
-            protdec.toxicActionPrice = this.toxicActionPrice;
+            protdec.toxicMovePrice = this.toxicMovePrice;
+            protdec.toxicPickupPrice = this.toxicPickupPrice;
             protdec.toxicActions = this.toxicActions;
 
             protdec.SetBatteryCustom(this.Battery);

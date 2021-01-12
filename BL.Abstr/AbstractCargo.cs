@@ -12,14 +12,15 @@ namespace BL.Abstr
             this.Weight = weignt;
             this.Price = price;
         }
+        public AbstractCargo() { }
         public int Weight;
         public int Price;
-        private int PosX;
-        private int PosY;
+        protected int PosX;
+        protected int PosY;
 
         public int GetPosX { get => this.PosX; set => this.PosX = value; }
         public int GetPosY { get => this.PosY; set => this.PosY = value; }
-        public Type GetCompilerTimeType()
+        public virtual Type GetCompilerTimeType()
         {
             return this.GetType();
         }

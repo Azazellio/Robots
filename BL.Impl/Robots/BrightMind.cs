@@ -6,11 +6,10 @@ namespace BL.Impl.Robots
 {
     public class BrightMind : Robot
     {
-        public BrightMind() : base()
+        public BrightMind(): base()
         {
             this.Battery = 100;
         }
-
         public override object Clone()
         {
             BrightMind brightMind = new BrightMind();
