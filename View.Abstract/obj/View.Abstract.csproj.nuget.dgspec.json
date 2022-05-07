@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\azazellio\\source\\repos\\RobotsConsole\\View.Abstract\\View.Abstract.csproj": {}
+    "/Users/nazarkozhin/CSharpProjects/Robots/View.Abstract/View.Abstract.csproj": {}
   },
   "projects": {
-    "C:\\Users\\azazellio\\source\\repos\\RobotsConsole\\BL.Abstr\\BL.Abstr.csproj": {
+    "/Users/nazarkozhin/CSharpProjects/Robots/BL.Abstr/BL.Abstr.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\azazellio\\source\\repos\\RobotsConsole\\BL.Abstr\\BL.Abstr.csproj",
+        "projectUniqueName": "/Users/nazarkozhin/CSharpProjects/Robots/BL.Abstr/BL.Abstr.csproj",
         "projectName": "BL.Abstr",
-        "projectPath": "C:\\Users\\azazellio\\source\\repos\\RobotsConsole\\BL.Abstr\\BL.Abstr.csproj",
-        "packagesPath": "C:\\Users\\azazellio\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\azazellio\\source\\repos\\RobotsConsole\\BL.Abstr\\obj\\",
+        "projectPath": "/Users/nazarkozhin/CSharpProjects/Robots/BL.Abstr/BL.Abstr.csproj",
+        "packagesPath": "/Users/nazarkozhin/.nuget/packages/",
+        "outputPath": "/Users/nazarkozhin/CSharpProjects/Robots/BL.Abstr/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\azazellio\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/nazarkozhin/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -54,36 +52,34 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.400/RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\azazellio\\source\\repos\\RobotsConsole\\View.Abstract\\View.Abstract.csproj": {
+    "/Users/nazarkozhin/CSharpProjects/Robots/View.Abstract/View.Abstract.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\azazellio\\source\\repos\\RobotsConsole\\View.Abstract\\View.Abstract.csproj",
+        "projectUniqueName": "/Users/nazarkozhin/CSharpProjects/Robots/View.Abstract/View.Abstract.csproj",
         "projectName": "View.Abstract",
-        "projectPath": "C:\\Users\\azazellio\\source\\repos\\RobotsConsole\\View.Abstract\\View.Abstract.csproj",
-        "packagesPath": "C:\\Users\\azazellio\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\azazellio\\source\\repos\\RobotsConsole\\View.Abstract\\obj\\",
+        "projectPath": "/Users/nazarkozhin/CSharpProjects/Robots/View.Abstract/View.Abstract.csproj",
+        "packagesPath": "/Users/nazarkozhin/.nuget/packages/",
+        "outputPath": "/Users/nazarkozhin/CSharpProjects/Robots/View.Abstract/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\azazellio\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/nazarkozhin/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\azazellio\\source\\repos\\RobotsConsole\\BL.Abstr\\BL.Abstr.csproj": {
-                "projectPath": "C:\\Users\\azazellio\\source\\repos\\RobotsConsole\\BL.Abstr\\BL.Abstr.csproj"
+              "/Users/nazarkozhin/CSharpProjects/Robots/BL.Abstr/BL.Abstr.csproj": {
+                "projectPath": "/Users/nazarkozhin/CSharpProjects/Robots/BL.Abstr/BL.Abstr.csproj"
               }
             }
           }
@@ -112,7 +108,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.400/RuntimeIdentifierGraph.json"
         }
       }
     }
