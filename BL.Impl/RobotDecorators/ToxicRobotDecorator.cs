@@ -1,65 +1,95 @@
 ﻿using BL.Abstr;
 using BL.Impl.Cargos;
 using BL.Impl.Robots;
-using System;
+using System.Collections.Generic;
 
 namespace BL.Impl.RobotDecorators
 {
-    class ToxicRobotDecorator : AbstractRobotDecorator
+    public class ToxicRobotDecorator : AbstractRobotDecorator
     {
-        private int ToxicActions = 0;
-        public ToxicRobotDecorator() : base() { }
+        public int toxicActions { get; protected set; }
+        protected int toxicMovePrice;
+        protected int toxicPickupPrice;
+        public int toxicActionsCount;
+        public ToxicRobotDecorator() : base()
+        {
+            this.toxicActions = 0;
+            this.toxicMovePrice = 3;
+            this.toxicPickupPrice = 5;
+            this.toxicActionsCount = 10;
+        }
         public override void PickupCargo(AbstractCargo cargo)
         {
             DecoratedPickup(cargo);
             this.robot.PickupCargo(cargo);
         }
         
-        public void DecoratedPickup(AbstractCargo cargo)
+        protected void DecoratedPickup(AbstractCargo cargo)
         {
-            if (cargo.GetType() == typeof(ToxicCargo) && this.robot.GetType() == typeof(Cyborg))
+            if (cargo.GetCompilerTimeType() == typeof(ToxicCargo) && this.robot.GetCompilerTimeType() == typeof(Cyborg))
             {
-                this.ToxicActions += 10;
-                this.ReduceBattery(10);
+                this.toxicActions = this.toxicActionsCount;
                 this.ReduceToxicActionPickUp();
             }
         }
         private void ReduceToxicActionPickUp()
         {
-            if (this.ToxicActions > 0)
+            if (this.toxicActions > 0)
             {
-                this.ReduceBattery(4);
-                this.ToxicActions -= 1;
+                this.robot.ReduceBattery(toxicPickupPrice);
+                this.toxicActions -= 1;
             }
         }
         private void ReduceToxicActionMove()
         {
-            if (this.ToxicActions > 0)
+            if (this.toxicActions > 0)
             {
-                this.ReduceBattery(3);
-                this.ToxicActions -= 1;
+                this.robot.ReduceBattery(toxicMovePrice);
+                this.toxicActions -= 1;
             }
         }
-        protected override void MoveLeft()
+        public override void ActionMoveLeft()
         {
-            base.MoveLeft();
             ReduceToxicActionMove();
+            this.robot.ActionMoveLeft();
         }
-        protected override void MoveRight()
+        public override void ActionMoveRight()
         {
-            base.MoveRight();
             ReduceToxicActionMove();
+            this.robot.ActionMoveRight();
         }
-        protected override void MoveDown()
+        public override void ActionMoveDown()
         {
-            base.MoveDown();
             ReduceToxicActionMove();
+            this.robot.ActionMoveDown();
         }
-        protected override void MoveUp()
+        public override void ActionMoveUp()
         {
-            base.MoveUp();
             ReduceToxicActionMove();
+            this.robot.ActionMoveUp();
         }
 
+        public override object Clone()
+        {
+            ToxicRobotDecorator protdec = new ToxicRobotDecorator();
+
+            protdec.SetRobot((Robot)this.robot.Clone());
+
+            protdec.toxicMovePrice = this.toxicMovePrice;
+            protdec.toxicPickupPrice = this.toxicPickupPrice;
+            protdec.toxicActions = this.toxicActions;
+
+            protdec.SetBatteryCustom(this.Battery);
+            protdec.Backpack = new List<AbstractCargo>(this.Backpack);
+            protdec.BackpackSize = this.BackpackSize;
+            protdec.RobotId = this.RobotId;
+            protdec.PosX = this.PosX;
+            protdec.PosY = this.PosY;
+            protdec.movePrice = this.movePrice;
+            protdec.pickPrice = this.pickPrice;
+            protdec.Legend = this.Legend;
+
+            return protdec;
+        }
     }
 }

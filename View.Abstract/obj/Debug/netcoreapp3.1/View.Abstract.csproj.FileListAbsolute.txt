@@ -1,0 +1,12 @@
+C:\Users\azazellio\source\repos\RobotsConsole\View.Abstract\bin\Debug\netcoreapp3.1\View.Abstract.deps.json
+C:\Users\azazellio\source\repos\RobotsConsole\View.Abstract\bin\Debug\netcoreapp3.1\View.Abstract.dll
+C:\Users\azazellio\source\repos\RobotsConsole\View.Abstract\bin\Debug\netcoreapp3.1\View.Abstract.pdb
+C:\Users\azazellio\source\repos\RobotsConsole\View.Abstract\bin\Debug\netcoreapp3.1\BL.Abstr.dll
+C:\Users\azazellio\source\repos\RobotsConsole\View.Abstract\bin\Debug\netcoreapp3.1\BL.Abstr.pdb
+C:\Users\azazellio\source\repos\RobotsConsole\View.Abstract\obj\Debug\netcoreapp3.1\View.Abstract.csprojAssemblyReference.cache
+C:\Users\azazellio\source\repos\RobotsConsole\View.Abstract\obj\Debug\netcoreapp3.1\View.Abstract.AssemblyInfoInputs.cache
+C:\Users\azazellio\source\repos\RobotsConsole\View.Abstract\obj\Debug\netcoreapp3.1\View.Abstract.AssemblyInfo.cs
+C:\Users\azazellio\source\repos\RobotsConsole\View.Abstract\obj\Debug\netcoreapp3.1\View.Abstract.csproj.CoreCompileInputs.cache
+C:\Users\azazellio\source\repos\RobotsConsole\View.Abstract\obj\Debug\netcoreapp3.1\View.Abstract.csproj.CopyComplete
+C:\Users\azazellio\source\repos\RobotsConsole\View.Abstract\obj\Debug\netcoreapp3.1\View.Abstract.dll
+C:\Users\azazellio\source\repos\RobotsConsole\View.Abstract\obj\Debug\netcoreapp3.1\View.Abstract.pdb

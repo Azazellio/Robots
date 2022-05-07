@@ -2,24 +2,25 @@
 using BL.Impl.Cargos;
 using BL.Impl.Robots;
 using System;
+using System.Collections.Generic;
 
 namespace BL.Impl.RobotDecorators
 {
-    class SpoilingRobotDecorator : AbstractRobotDecorator
+    public class SpoilingRobotDecorator : AbstractRobotDecorator
     {
-        private int _ActionsUntilSpoiled = -1;
+        protected int _ActionsUntilSpoiled = -1;
+        public AbstractCargo cargoThatSpoils;
         public int ActionsUntilSpoiled
         {
             get { return this._ActionsUntilSpoiled; }
-            private set
+            set
             {
                 if (value < 1)
                     DePriceCargo();
                 this._ActionsUntilSpoiled = value;
             }
         }
-        private AbstractCargo cargoThatSpoils;
-        private void DePriceCargo()
+        protected void DePriceCargo()
         {
             this.cargoThatSpoils.Price = 0;
         }
@@ -31,34 +32,56 @@ namespace BL.Impl.RobotDecorators
             if (cargo.GetType() == typeof(SpoilableCargo))
             {
                 this.cargoThatSpoils = cargo;
-                this.ActionsUntilSpoiled = 15;
+                this.ActionsUntilSpoiled = 10;
             }
-            base.PickupCargo(cargo);
+            this.robot.PickupCargo(cargo);
         }
         private void SpoilCargo()
         {
             if (this._ActionsUntilSpoiled != -1)
                 this.ActionsUntilSpoiled--;
         }
-        protected override void MoveUp()
+        public override void ActionMoveUp()
         {
             this.SpoilCargo();
-            base.MoveUp();
+            robot.ActionMoveUp();
         }
-        protected override void MoveDown()
+        public override void ActionMoveDown()
         {
             this.SpoilCargo();
-            base.MoveDown();
+            robot.ActionMoveDown();
         }
-        protected override void MoveLeft()
+        public override void ActionMoveLeft()
         {
             this.SpoilCargo();
-            base.MoveLeft();
+            robot.ActionMoveLeft();
         }
-        protected override void MoveRight()
+        public override void ActionMoveRight()
         {
             this.SpoilCargo();
-            base.MoveRight();
+            robot.ActionMoveRight();
+        }
+
+        public override object Clone()
+        {
+            SpoilingRobotDecorator protdec = new SpoilingRobotDecorator();
+
+            protdec.SetRobot((Robot)this.robot.Clone());
+
+            protdec._ActionsUntilSpoiled = this._ActionsUntilSpoiled;
+            protdec.cargoThatSpoils = this.cargoThatSpoils;
+
+            protdec.SetBatteryCustom(this.Battery);
+            protdec.Backpack = new List<AbstractCargo>(this.Backpack);
+            protdec.BackpackSize = this.BackpackSize;
+            protdec.RobotId = this.RobotId;
+            protdec.PosX = this.PosX;
+            protdec.PosY = this.PosY;
+            protdec.movePrice = this.movePrice;
+            protdec.pickPrice = this.pickPrice;
+            protdec.Legend = this.Legend;
+
+            return protdec;
         }
     }
 }

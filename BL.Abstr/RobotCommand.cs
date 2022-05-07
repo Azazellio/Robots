@@ -5,16 +5,29 @@ using System.Windows.Input;
 
 namespace BL.Abstr
 {
-    public abstract class RobotCommand
+    public abstract class RobotCommand:ICloneable
     {
         public event EventHandler CanExecuteChanged;
-
-        protected IField field;
-        protected string backUp;
-        public RobotCommand(IField field)
+        protected Robot robot;
+        protected IFieldSnapshot backUp;
+        public RobotCommand(Robot robot)
         {
-            this.field = field;
+            this.robot = robot;
         }
+        public RobotCommand() { }
         public abstract void Execute();
+
+        public IFieldSnapshot AddBackup(IFieldSnapshot snap)
+        {
+            this.backUp = snap;
+            return snap;
+        }
+        public IFieldSnapshot Undo()
+        {
+            this.backUp.Restore();
+            return this.backUp;
+        }
+
+        public abstract object Clone();
     }
 }

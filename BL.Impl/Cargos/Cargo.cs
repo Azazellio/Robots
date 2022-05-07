@@ -3,14 +3,12 @@ using System.Collections.Generic;
 using System.Text;
 using BL.Abstr;
 
-namespace BL.Impl
+namespace BL.Impl.Cargos
 {
     public class Cargo : AbstractCargo
     {
-        public Cargo(int posX, int posY, int price, int weignt) : base(posX, posY, price, weignt)
-        {
-            this.View = "c1";
-        }
+        public Cargo(int posX, int posY, int price, int weignt) : base(posX, posY, price, weignt) { }
+        public Cargo() : base() { }
 
     }
 }

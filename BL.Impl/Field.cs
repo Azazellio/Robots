@@ -3,35 +3,15 @@ using System.Collections.Generic;
 
 namespace BL.Impl
 {
-    class Field : IField
+    public class Field : IField
     {
+        private IGameObject[,] fieldArr;
+        private Robot robot;
+        public Field() { }
         public Field(IGameObject[,] field, Robot robot)
         {
             this.fieldArr = field;
             this.robot = robot;
-        }
-        private IGameObject[,] fieldArr;
-        private Robot robot;
-
-        public void ScanField()
-        {
-            //this.fieldArr[this.robot.PosX, this.robot.PosY] = robot;
-
-            var newField = new IGameObject[fieldArr.GetLength(0), fieldArr.GetLength(1)];
-
-            int rowLength = newField.GetLength(0);
-            int colLength = newField.GetLength(1);
-
-           for (int i = 0; i < rowLength; i++)
-            {
-                for (int j = 0; j < colLength; j++)
-                {
-                    var old = fieldArr[i, j];
-                    newField[old.GetPosX(), old.GetPosY()] = old;
-                    
-                }
-            }
-            this.fieldArr = newField;
         }
 
         public Robot GetRobot()
@@ -39,12 +19,12 @@ namespace BL.Impl
             return this.robot;
         }
 
-        public int GetSizeX()
+        public int GetSizeY()
         {
             return this.fieldArr.GetLength(0);
         }
 
-        public int GetSizeY()
+        public int GetSizeX()
         {
             return this.fieldArr.GetLength(1);
         }
@@ -52,6 +32,35 @@ namespace BL.Impl
         public IGameObject[,] GetField()
         {
             return this.fieldArr;
+        }
+
+        public IFieldSnapshot CreateSnapshot()
+        {
+            var resarr = this.fieldArr.Clone() as IGameObject[,];
+            var rob = (Robot)this.robot.Clone();
+            return new FieldSnapshot(resarr, rob, this);
+        }
+
+        public void SetFieldArr(IGameObject[,] fieldarr1)
+        {
+            this.fieldArr = fieldarr1;
+        }
+
+        public void SetRobot(Robot robot)
+        {
+            this.robot = robot;
+        }
+
+        public bool CanMoveThere(int y, int x)
+        {
+            if (y < this.GetSizeY() && y > -1)
+            {
+                if(x < this.GetSizeX() && x > -1)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

@@ -2,50 +2,78 @@
 using BL.Impl.Cargos;
 using BL.Impl.Robots;
 using System;
+using System.Collections.Generic;
 
 namespace BL.Impl.RobotDecorators
 {
-    class ProtectedRobotDecorator : AbstractRobotDecorator
+    public class ProtectedRobotDecorator : AbstractRobotDecorator
     {
-        public ProtectedRobotDecorator() : base() { }
-
-        public override void PickupCargo(AbstractCargo cargo)
+    protected bool hasBeenCalled;
+    public ProtectedRobotDecorator() : base()
         {
-            if (this.CanPickUpCargo(cargo))
-            {
-                base.PickupCargo(cargo);
-            }
+            hasBeenCalled = false;
         }
-
-        private bool CanPickUpCargo(AbstractCargo cargo)
+        public override bool CanPickCargo(AbstractCargo cargo)
         {
-            if (cargo.GetType() == typeof(ProtectedCargo))
+            if (robot.CanPickCargo(cargo))
             {
-                var rand = new Random();
-                var integ = rand.Next(0, 100);
-
-                if (this.robot.GetType() == typeof(BrightMind))
+                if (this.hasBeenCalled == true)
                 {
                     return true;
                 }
-                else if (this.robot.GetType() == typeof(Cyborg))
+                if (cargo.GetType() == typeof(ProtectedCargo))
                 {
-                    if (integ < 60)
+                    this.hasBeenCalled = true;
+                    var rand = new Random();
+                    var integ = rand.Next(0, 100);
+
+                    if (this.robot.GetCompilerTimeType() == typeof(BrightMind))
                     {
                         return true;
                     }
-                    return false;
-                }
-                else if (this.robot.GetType() == typeof(Worker))
-                {
-                    if (integ < 10)
+                    else if (this.robot.GetCompilerTimeType() == typeof(Cyborg))
                     {
-                        return true;
+                        if (integ < 60)
+                        {
+                            return true;
+                        }
+                        return false;
                     }
-                    return false;
+                    else if (this.robot.GetCompilerTimeType() == typeof(Worker))
+                    {
+                        if (integ < 10)
+                        {
+                            return true;
+                        }
+                        return false;
+                    }
                 }
+                return true;
             }
-            return true;
+            return false;
+        }
+        public bool GethasbeenCalled()
+        {
+            return this.hasBeenCalled;
+        }
+        public override object Clone()
+        {
+            ProtectedRobotDecorator protdec = new ProtectedRobotDecorator();
+
+            protdec.SetRobot((Robot)this.robot.Clone());
+            protdec.hasBeenCalled = this.hasBeenCalled;
+
+            protdec.SetBatteryCustom(this.Battery);
+            protdec.Backpack = new List<AbstractCargo>(this.Backpack);
+            protdec.BackpackSize = this.BackpackSize;
+            protdec.RobotId = this.RobotId;
+            protdec.PosX = this.PosX;
+            protdec.PosY = this.PosY;
+            protdec.movePrice = this.movePrice;
+            protdec.pickPrice = this.pickPrice;
+            protdec.Legend = this.Legend;
+
+            return protdec;
         }
     }
 }

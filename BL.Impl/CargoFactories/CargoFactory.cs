@@ -1,4 +1,5 @@
 ﻿using BL.Abstr;
+using BL.Impl.Cargos;
 
 namespace BL.Impl.CargoFactories
 {

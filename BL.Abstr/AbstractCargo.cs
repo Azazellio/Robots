@@ -1,6 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿
+using System;
 
 namespace BL.Abstr
 {
@@ -13,31 +12,17 @@ namespace BL.Abstr
             this.Weight = weignt;
             this.Price = price;
         }
+        public AbstractCargo() { }
         public int Weight;
         public int Price;
-        public int PosX;
-        public int PosY;
+        protected int PosX;
+        protected int PosY;
 
-        protected string View;
-
-        public string GetView()
+        public int GetPosX { get => this.PosX; set => this.PosX = value; }
+        public int GetPosY { get => this.PosY; set => this.PosY = value; }
+        public virtual Type GetCompilerTimeType()
         {
-            return this.View;
-        }
-
-        public int GetPosX()
-        {
-            return this.PosX;
-        }
-
-        public int GetPosY()
-        {
-            return this.PosY;
-        }
-
-        public void Destroy()
-        {
-            this.View = " ";
+            return this.GetType();
         }
     }
 }

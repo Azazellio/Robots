@@ -1,37 +1,25 @@
 ﻿using BL.Abstr;
+using System;
 
 namespace BL.Impl
 {
-    class EmptyElement : IGameObject
+    public class EmptyElement : IGameObject
     {
         public EmptyElement(int posx, int posy)
         {
-            this.View = "|_|";
             this.posX = posx;
             this.posY = posy;
         }
         private int posX;
         private int posY;
 
-        private string View;
-        public void Destroy()
-        {
-            this.View = " ";
-        }
 
-        public string GetView()
-        {
-            return this.View;
-        }
+        int IGameObject.GetPosX { get => this.posX; set => this.posX = value ; }
+        int IGameObject.GetPosY { get => this.posY; set => this.posY = value; }
 
-        public int GetPosX()
+        public Type GetCompilerTimeType()
         {
-            return this.posX;
-        }
-
-        public int GetPosY()
-        {
-            return this.posY;
+            return this.GetType();
         }
     }
 }
