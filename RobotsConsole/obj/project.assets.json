@@ -46,37 +46,35 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\azazellio\\.nuget\\packages\\": {}
+    "/Users/nazarkozhin/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\azazellio\\source\\repos\\RobotsConsole\\RobotsConsole\\RobotsConsole.csproj",
+      "projectUniqueName": "/Users/nazarkozhin/CSharpProjects/Robots/RobotsConsole/RobotsConsole.csproj",
       "projectName": "RobotsConsole",
-      "projectPath": "C:\\Users\\azazellio\\source\\repos\\RobotsConsole\\RobotsConsole\\RobotsConsole.csproj",
-      "packagesPath": "C:\\Users\\azazellio\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\azazellio\\source\\repos\\RobotsConsole\\RobotsConsole\\obj\\",
+      "projectPath": "/Users/nazarkozhin/CSharpProjects/Robots/RobotsConsole/RobotsConsole.csproj",
+      "packagesPath": "/Users/nazarkozhin/.nuget/packages/",
+      "outputPath": "/Users/nazarkozhin/CSharpProjects/Robots/RobotsConsole/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\azazellio\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/nazarkozhin/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\azazellio\\source\\repos\\RobotsConsole\\BL.Abstr\\BL.Abstr.csproj": {
-              "projectPath": "C:\\Users\\azazellio\\source\\repos\\RobotsConsole\\BL.Abstr\\BL.Abstr.csproj"
+            "/Users/nazarkozhin/CSharpProjects/Robots/BL.Abstr/BL.Abstr.csproj": {
+              "projectPath": "/Users/nazarkozhin/CSharpProjects/Robots/BL.Abstr/BL.Abstr.csproj"
             },
-            "C:\\Users\\azazellio\\source\\repos\\RobotsConsole\\BL.Impl\\BL.Impl.csproj": {
-              "projectPath": "C:\\Users\\azazellio\\source\\repos\\RobotsConsole\\BL.Impl\\BL.Impl.csproj"
+            "/Users/nazarkozhin/CSharpProjects/Robots/BL.Impl/BL.Impl.csproj": {
+              "projectPath": "/Users/nazarkozhin/CSharpProjects/Robots/BL.Impl/BL.Impl.csproj"
             }
           }
         }
@@ -105,7 +103,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.400/RuntimeIdentifierGraph.json"
       }
     }
   }

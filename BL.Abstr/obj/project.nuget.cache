@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "6rLBCyoXBrPh+rXKd6KYdxJPQRdAoTnB0NTLnCAFsUlradqYIxmqyNqmsrbFhcH2M4hAGihSow+jko8paUq0LA==",
+  "dgSpecHash": "AzLjrpDXgHO4MTycSPlIdaH1Ot8SJhWHvH0PKxdG1Vfh59wuWymIVpLeSCs3b+clVwgryF7Pyt2wz0HwfLvyOA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\azazellio\\source\\repos\\RobotsConsole\\BL.Abstr\\BL.Abstr.csproj",
+  "projectFilePath": "/Users/nazarkozhin/CSharpProjects/Robots/BL.Abstr/BL.Abstr.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

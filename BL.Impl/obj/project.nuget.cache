@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "IplKWMFNXcpQB9SbPN3fHmT1ghfNRDyLd5NUaLYMGja3K1Jy6WTOv+6vufsoCv20FzY3nK/PzFIugLQ95dcSKQ==",
+  "dgSpecHash": "Zl04koNtPPUS409htOLvOpNDfoLpG1BR2epB6upjR/pgcXnS8QaTnUsfbBK8m6Bi9YvMBdx0yMuiWZmVtEdEbw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\azazellio\\source\\repos\\RobotsConsole\\BL.Impl\\BL.Impl.csproj",
+  "projectFilePath": "/Users/nazarkozhin/CSharpProjects/Robots/BL.Impl/BL.Impl.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
