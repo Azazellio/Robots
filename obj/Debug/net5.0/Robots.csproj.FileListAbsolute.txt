@@ -1,0 +1,5 @@
+/Users/nazarkozhin/CSharpProjects/Robots/obj/Debug/net5.0/Robots.csprojAssemblyReference.cache
+/Users/nazarkozhin/CSharpProjects/Robots/obj/Debug/net5.0/Robots.GeneratedMSBuildEditorConfig.editorconfig
+/Users/nazarkozhin/CSharpProjects/Robots/obj/Debug/net5.0/Robots.AssemblyInfoInputs.cache
+/Users/nazarkozhin/CSharpProjects/Robots/obj/Debug/net5.0/Robots.AssemblyInfo.cs
+/Users/nazarkozhin/CSharpProjects/Robots/obj/Debug/net5.0/Robots.csproj.CoreCompileInputs.cache
